@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Calculate your Digits!</title>
+    <link href="https://fonts.googleapis.com/css?family=Playball" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="calculator.css" />
+
+
+    <script>
+    function calculate(){
+       //took help from stackoverflow for resetting the button
+        let radios = document.getElementsByTagName('operator');
+        for(i=0; i<radios.length; i++ ) {
+          let r = radios[i].checked;
+          if(r.checked==true){
+            r.checked=false;
+          }
+          }
+        let result;
+        document.getElementById("result").innerHTML = null;
+
+        if(document.getElementById('r1').checked){
+            let text = document.getElementById('input1').value;
+            let text2= document.getElementById('input2').value;
+            if(text==="" || text2===""){
+                document.getElementById("result").innerHTML = "Please enter your digits";
+            }
+            else{
+            result = (+text) + (+text2);
+            document.getElementById("result").innerHTML = result;
+            }
+        
+        }
+        if(document.getElementById('r2').checked){
+            let text = document.getElementById('input1').value;
+            let text2= document.getElementById('input2').value;
+            if(text==="" || text2===""){
+                document.getElementById("result").innerHTML = "Please enter your digits";
+            }
+            else{
+            result = (+text)-(+text2);
+            document.getElementById("result").innerHTML = result;
+            }
+            
+        }
+        if(document.getElementById('r3').checked){
+            let text = document.getElementById('input1').value;
+            let text2= document.getElementById('input2').value;
+            if(text==="" || text2===""){
+                document.getElementById("result").innerHTML = "Please enter your digits";
+            }
+            else{
+            result = (+text)*(+text2);
+            document.getElementById("result").innerHTML = result;
+            }
+            
+        }
+        if(document.getElementById('r4').checked){
+            let text = document.getElementById('input1').value;
+            let text2= document.getElementById('input2').value;
+            if(text==="" || text2===""){
+                document.getElementById("result").innerHTML = "Please enter your digits";
+            }
+            else{
+            result = (+text)/(+text2);
+            document.getElementById("result").innerHTML = result;
+            }
+            
+        }
+    }
+    
+    
+    </script>
+
+  </head>
+
+
+
+  <body>
+    <h1>Calculate your Digits!</h1>
+    
+    <div class="container">
+      
+      <form>   
+        <h2>Number 1</h2>
+        <h2>.<input type="text" name="num1" placeholder="Type Here" id="input1"></h2>
+        <h2>Number 2</h2>
+        <h2>.<input type="text" name="num2" placeholder="Type Here" id="input2"></h2>
+      
+
+        <h2>Select Operator</h2>
+        <div id=oper>
+        <h3>
+          <input type="radio" id="r1" value="+" name="operator">Addition
+          <input type="radio" id="r2" value="-" name="operator">Substraction
+          <input type="radio" id="r3" value="*" name="operator">Multiplication
+          <input type="radio" id="r4" value="/" name="operator">Division
+          </h3>
+        </div>
+
+        <div id=box>
+        <h2>Result</h2>  <h2 id="result"></h2>
+        </div>
+
+        
+      / 
+     </form>
+
+     <script>
+         document.getElementById('r1').addEventListener("click",calculate,false);
+         document.getElementById('r2').addEventListener("click",calculate,false);
+         document.getElementById('r3').addEventListener("click",calculate,false);
+         document.getElementById('r4').addEventListener("click",calculate,false);
+         document.getElementById('input1').addEventListener("change",calculate,false);
+         document.getElementById('input2').addEventListener("change",calculate,false);
+     </script>
+
+     </div>
+  </body>
+</html>
